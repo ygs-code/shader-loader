@@ -1,4 +1,4 @@
-# webpack-shader-loader
+# webpack-glsl-shader-loader
 
 ## 中文
 
@@ -7,9 +7,9 @@
 ### 安装 
 
 ```
-npm i webpack-shader-loader
+npm i webpack-glsl-shader-loader
 //or
-yarn add  webpack-shader-loader
+yarn add  webpack-glsl-shader-loader
 ```
 
 
@@ -88,7 +88,7 @@ module.exports = {
         test: /\.(vert|frag)$/,
         exclude: /node_modules/,
         use: {
-          loader:"webpack-shader-loader",
+          loader:"webpack-glsl-shader-loader",
             options:{
                 checkError: true, // 是否打开shader校验错误功能，默认打开 如果你觉得编译速度很慢，可以把它关闭
             }
@@ -110,9 +110,9 @@ This is a shader loader that also has the function of checking whether the compi
 ### Install 
 
 ```
-npm i webpack-shader-loader
+npm i webpack-glsl-shader-loader
 //or
-yarn add  webpack-shader-loader
+yarn add  webpack-glsl-shader-loader
 ```
 
 
@@ -181,14 +181,14 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
   },
 
-  //  webpack-shader-loader  config
+  //  webpack-glsl-shader-loader  config
   module: {
     rules: [
       {
         test: /\.(vert|frag)$/,
         exclude: /node_modules/,
         use: {
-          loader:"webpack-shader-loader",
+          loader:"webpack-glsl-shader-loader",
           options:{
                 checkError: true, // Whether to turn on the shader error checking function, which is turned on by default if you feel that the compilation speed is slow, you can turn it off 
             }
