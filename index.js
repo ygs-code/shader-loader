@@ -23,36 +23,37 @@ let fragReg = /\.frag$/;
 module.exports = function (source) {
   const callback = this.async();
   let options = this.query;
-
-  //  是 vert 文件
-  if (this.resourcePath.match(vertReg)) {
-    // 创建程序对象
-    var program = createProgram(gl, source, "");
-    try {
-      // 创建vertexShader
-      var vertexShader = createVertexShader(gl, program, source);
-    } catch (error) {
-      throw `
-      error: vert shader path ${this.resourcePath}, 
-      error info ${error}
+  const {
+    checkError = true // 是否校验错误
+  } = options
+  if (checkError) {
+    //  是 vert 文件
+    if (this.resourcePath.match(vertReg)) {
+      // 创建程序对象
+      var program = createProgram(gl, source, "");
+      try {
+        // 创建vertexShader
+        var vertexShader = createVertexShader(gl, program, source);
+      } catch (error) {
+        throw `
+      Error info ${error}
       `;
+      }
+    }
+    //  是 frag 文件
+    if (this.resourcePath.match(fragReg)) {
+      // 创建程序对象
+      var program = createProgram(gl, "", source);
+      try {
+        // 创建fragmentShader
+        var fragmentShader = createFragmentShader(gl, program, source);
+      } catch (error) {
+        throw `
+      Error info ${error}
+      `;
+      }
     }
   }
-  //  是 frag 文件
-  if (this.resourcePath.match(fragReg)) {
-    // 创建程序对象
-    var program = createProgram(gl, "", source);
-    try {
-      // 创建fragmentShader
-      var fragmentShader = createFragmentShader(gl, program, source);
-    } catch (error) {
-      throw `
-      error: vert shader path ${this.resourcePath}, 
-      error info ${error}
-      `;
-    }
-  }
-
   const json = JSON.stringify(source)
     .replace(/\u2028/g, "\\u2028")
     .replace(/\u2029/g, "\\u2029");

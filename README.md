@@ -89,6 +89,9 @@ module.exports = {
         exclude: /node_modules/,
         use: {
           loader:"webpack-shader-loader",
+            options:{
+                checkError: true, // 是否打开shader校验错误功能，默认打开 如果你觉得编译速度很慢，可以把它关闭
+            }
         },
       },
     ],
@@ -186,6 +189,9 @@ module.exports = {
         exclude: /node_modules/,
         use: {
           loader:"webpack-shader-loader",
+          options:{
+                checkError: true, // Whether to turn on the shader error checking function, which is turned on by default if you feel that the compilation speed is slow, you can turn it off 
+            }
         },
       },
     ],

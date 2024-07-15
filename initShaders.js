@@ -85,7 +85,7 @@
     // 创建程序对象
     var program = gl.createProgram();
     if (!program) {
-      throw "Failed to create program: " + error;
+      throw "Failed to create program";
     }
 
     return program;
