@@ -2,7 +2,7 @@
   "name": "shader-loader",
   "version": "0.0.1",
   "description": "This is a shader loader,It also comes with the ability to check compilation shader",
-  "main": "index.js",
+  "main": "./index.js",
   "directories": {
     "test": "test"
   },
@@ -23,7 +23,17 @@
     "nan": "^2.18.0",
     "node-abi": "^3.56.0",
     "node-gyp": "^10.0.1",
-    "prebuild-install": "^7.1.1",
+    "prebuild-install": "^7.1.1"
+  },
+  "devDependencies": {
+    "angle-normals": "^1.0.0",
+    "bunny": "^1.0.1",
+    "faucet": "^0.0.4",
+    "gl-conformance": "^2.0.9",
+    "prebuild": "^13.0.0",
+    "snazzy": "^9.0.0",
+    "standard": "^17.1.0",
+    "tape": "^5.7.5",
     "@babel/cli": "^7.17.6",
     "@babel/core": "^7.17.10",
     "@babel/eslint-parser": "^7.18.2",
@@ -65,19 +75,9 @@
     "babel-plugin-named-asset-import": "^0.3.7",
     "babel-preset-es2015": "^6.24.1"
   },
-  "devDependencies": {
-    "angle-normals": "^1.0.0",
-    "bunny": "^1.0.1",
-    "faucet": "^0.0.4",
-    "gl-conformance": "^2.0.9",
-    "prebuild": "^13.0.0",
-    "snazzy": "^9.0.0",
-    "standard": "^17.1.0",
-    "tape": "^5.7.5"
-  },
   "repository": {
     "type": "git",
-    "url": "git://github.com/stackgl/headless-gl.git"
+    "url": "https://github.com/ygs-code/shader-loader.git"
   },
   "keywords": [
     "webgl",
@@ -85,9 +85,12 @@
     "gl",
     "headless",
     "server",
-    "gpgpu"
+    "gpgpu",
+    "shader-loader",
+    "shader",
+    "webpack-shader-loader"
   ],
-  "author": "Mikola Lysenko",
+  "author": "Yao guan shou",
   "license": "BSD-2-Clause",
   "gypfile": true
 }

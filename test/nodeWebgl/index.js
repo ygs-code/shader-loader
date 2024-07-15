@@ -1,14 +1,15 @@
 const FSHADER_SOURCE = require("./index.frag.js");
 const VSHADER_SOURCE = require("./index.vert.js");
-const nodeGl = require("./index");
+const nodeGl = require("../../headless-gl.js");
 const {
   initShader,
   createProgram,
   createVertexShader,
   createFragmentShader,
   checkLinkProgram,
-} = require("./initShaders");
-const [width, height] = [512, 512];
+} = require("./../../initShaders");
+
+const [width, height] = [10, 10];
 const gl = nodeGl(width, height, { preserveDrawingBuffer: true });
 
 // 创建和连接Program

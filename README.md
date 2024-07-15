@@ -1,34 +1,93 @@
-# gl
+# shader-loader
 
-[![ci](https://github.com/stackgl/headless-gl/actions/workflows/ci.yml/badge.svg)](https://github.com/stackgl/headless-gl/actions/workflows/ci.yml)
-[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
+首先我们的shader 需要分为两个文件， 一个是 .vert 后缀的文件 和  .frag 后缀的文件，
 
-`gl` lets you create a WebGL context in [Node.js](https://nodejs.org/en/) without making a window or loading a full browser environment.
+index.vert 文件内容
 
-It aspires to fully conform to the [WebGL 1.0.3 specification](https://www.khronos.org/registry/webgl/specs/1.0.3/).
+```
 
-## Example
+  attribute vec4 a_Position;
+  void main() {
+    gl_Position = a_Position;
+    gl_PointSize = 10.0; 
+  } 
+
+```
+
+
+
+  index.frag 文件内容
+
+```
+
+  attribute vec4 a_Position;
+  void main() {
+    gl_Position = a_Position;
+    gl_PointSize = 10.0; 
+  } 
+
+```
+
+
+
+```
+import FSHADER_SOURCE from "../index.frag";
+
+import VSHADER_SOURCE from "../index.vert";
+
+```
+
+
+
+
+
+ 
+
+
+
+## webpack.config.js
 
 ```javascript
-// Create context
-var width   = 64
-var height  = 64
-var gl = require('gl')(width, height, { preserveDrawingBuffer: true })
+const path = require("path");
 
-//Clear screen to red
-gl.clearColor(1, 0, 0, 1)
-gl.clear(gl.COLOR_BUFFER_BIT)
+module.exports = {
+  // 设置入口文件
+  entry: "./app/index.js",
 
-//Write output as a PPM formatted image
-var pixels = new Uint8Array(width * height * 4)
-gl.readPixels(0, 0, width, height, gl.RGBA, gl.UNSIGNED_BYTE, pixels)
-process.stdout.write(['P3\n# gl.ppm\n', width, " ", height, '\n255\n'].join(''))
+  // 配置输出
+  output: {
+    filename: "bundle.js",
+    path: path.resolve(__dirname, "dist"),
+  },
 
-for(var i = 0; i < pixels.length; i += 4) {
-  for(var j = 0; j < 3; ++j) {
-    process.stdout.write(pixels[i + j] + ' ')
-  }
-}
+  // 配置加载器
+  module: {
+    rules: [
+      {
+        test: /\.(vert|frag)$/,
+        exclude: /node_modules/,
+        use: {
+          loader:"shader-loader",
+        },
+      },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+        },
+      },
+    ],
+  },
+  // 开发工具配置
+  devtool: "eval-source-map",
+  // 开发服务器配置
+  devServer: {
+    contentBase: "./dist",
+    open: true,
+  },
+};
+
 ```
 
 ## Install

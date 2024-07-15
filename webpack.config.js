@@ -17,10 +17,7 @@ module.exports = {
         test: /\.(vert|frag)$/,
         exclude: /node_modules/,
         use: {
-          loader: path.resolve("./shader-loader.js"),
-          //   options: {
-          //     presets: ["@babel/preset-env"],
-          //   },
+          loader: path.resolve("./index.js"),
         },
       },
       {
