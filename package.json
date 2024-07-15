@@ -1,5 +1,5 @@
 {
-  "name": "shader-loader",
+  "name": "webpack-shader-loader",
   "version": "0.0.1",
   "description": "This is a shader loader,It also comes with the ability to check compilation shader",
   "main": "./index.js",
