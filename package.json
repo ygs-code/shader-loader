@@ -1,6 +1,6 @@
 {
   "name": "webpack-glsl-shader-loader",
-  "version": "0.1.2",
+  "version": "0.1.4",
   "description": "This is a shader loader,It also comes with the ability to check compilation shader",
   "main": "./index.js",
   "directories": {
@@ -88,7 +88,8 @@
     "gpgpu",
     "shader-loader",
     "shader",
-    "webpack-shader-loader"
+    "webpack-shader-loader",
+    "webpack-glsl-shader-loader"
   ],
   "author": "Yao guan shou",
   "license": "BSD-2-Clause",
