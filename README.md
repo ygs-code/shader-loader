@@ -4,6 +4,8 @@
 
 这是一个着色器加载器，它还具有检查编译着色器的是否正确功能。
 
+<img src="./1.png"/>
+
 ### 安装
 
 ```
@@ -86,6 +88,8 @@ module.exports = {
 # English
 
 This is a shader loader that also has the function of checking whether the compiled shader is correct.
+
+<img src="./1.png"/>
 
 ### Install
 
