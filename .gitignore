@@ -6,7 +6,6 @@ Debug
 *.log
 node_modules
 prebuilds/*
-angle/build/*
 example/**/*.ppm
 4.6.1
 5.12.0
