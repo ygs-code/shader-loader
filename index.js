@@ -16,8 +16,6 @@ const {
 } = require("./initShaders");
 const [width, height] = [1, 1];
 const gl = nodeGl(width, height, { preserveDrawingBuffer: true });
-const loaderUtils = require("loader-utils");
-const schemaUtils = require("schema-utils");
 let vertReg = /\.vert$/;
 let fragReg = /\.frag$/;
 module.exports = function (source) {
