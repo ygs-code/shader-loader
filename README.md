@@ -4,19 +4,13 @@
 
 这是一个着色器加载器，它还具有检查编译着色器的是否正确功能。
 
-### 安装 
+### 安装
 
 ```
 npm i webpack-glsl-shader-loader
 //or
 yarn add  webpack-glsl-shader-loader
 ```
-
-
-
-
-
-
 
 首先我们的shader 需要分为两个文件， 一个是 .vert 后缀的文件 和  .frag 后缀的文件，
 
@@ -32,8 +26,6 @@ yarn add  webpack-glsl-shader-loader
 
 ```
 
-
-
   /app/index.frag 文件内容
 
 ```
@@ -46,10 +38,6 @@ yarn add  webpack-glsl-shader-loader
 
 ```
 
-
-
-
-
 /app/index.js
 
 ```
@@ -57,12 +45,6 @@ import FSHADER_SOURCE from "./index.frag";
 import VSHADER_SOURCE from "./index.vert";
 
 ```
-
-
-
-
-
- 
 
 ### webpack 配置
 
@@ -88,7 +70,7 @@ module.exports = {
         test: /\.(vert|frag)$/,
         exclude: /node_modules/,
         use: {
-          loader:"webpack-glsl-shader-loader",
+            loader:"webpack-glsl-shader-loader",
             options:{
                 checkError: true, // 是否打开shader校验错误功能，默认打开 如果你觉得编译速度很慢，可以把它关闭
             }
@@ -101,25 +83,17 @@ module.exports = {
 
 ```
 
- 
-
 # English
 
 This is a shader loader that also has the function of checking whether the compiled shader is correct.
 
-### Install 
+### Install
 
 ```
 npm i webpack-glsl-shader-loader
 //or
 yarn add  webpack-glsl-shader-loader
 ```
-
-
-
-
-
-
 
 First, our shader needs to be divided into two files, one is the.vert file and the other is the.frag file.
 
@@ -134,8 +108,6 @@ First, our shader needs to be divided into two files, one is the.vert file and t
 
 ```
 
-
-
   /app/index.frag  file content
 
 ```
@@ -147,10 +119,6 @@ First, our shader needs to be divided into two files, one is the.vert file and t
 
 ```
 
-
-
-
-
 /app/index.js file content
 
 ```
@@ -158,12 +126,6 @@ import FSHADER_SOURCE from "./index.frag";
 import VSHADER_SOURCE from "./index.vert";
 
 ```
-
-
-
-
-
- 
 
 ### webpack config
 
@@ -200,4 +162,3 @@ module.exports = {
 };
 
 ```
-
